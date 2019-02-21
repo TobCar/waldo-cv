@@ -13,20 +13,20 @@ int main(int argc, char** argv) {
     try {
         puzzleImage = loadPuzzleImage();
     } catch (const ImageNotFoundException& e) {
-        std::cout << e.what();
+        std::cout << e.what() << std::endl;
         return -1;
     }
     
     // Display the image to test we loaded it properly
-    namedWindow( "Display window", cv::WINDOW_AUTOSIZE );
-    cv::imshow( "Display window", puzzleImage);
+    namedWindow("Puzzle Image", cv::WINDOW_AUTOSIZE);
+    cv::imshow("Puzzle Image", puzzleImage);
     cv::waitKey(0);
     
     return 0;
 }
 
 cv::Mat loadPuzzleImage() {
-    cv::Mat image = imread("puzzle.png", cv::IMREAD_COLOR);   // Read the file
+    cv::Mat image = imread("puzzle.png", cv::IMREAD_COLOR);
     
     if (!image.data) {
         throw ImageNotFoundException();
