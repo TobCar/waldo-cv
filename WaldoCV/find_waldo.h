@@ -3,6 +3,6 @@
 
 #include <opencv2/opencv.hpp>
 
-cv::Mat loadPuzzleImage();
+cv::Mat loadImage(std::string);
 
 #endif

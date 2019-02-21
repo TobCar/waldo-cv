@@ -10,8 +10,10 @@ struct ImageNotFoundException : public std::exception {
 
 int main(int argc, char** argv) {
     cv::Mat puzzleImage;
+    cv::Mat waldoTemplateImage;
     try {
-        puzzleImage = loadPuzzleImage();
+        puzzleImage = loadImage("puzzle.png");
+        waldoTemplateImage = loadImage("waldo.png");
     } catch (const ImageNotFoundException& e) {
         std::cout << e.what() << std::endl;
         return -1;
@@ -25,8 +27,8 @@ int main(int argc, char** argv) {
     return 0;
 }
 
-cv::Mat loadPuzzleImage() {
-    cv::Mat image = imread("puzzle.png", cv::IMREAD_COLOR);
+cv::Mat loadImage(std::string imageName) {
+    cv::Mat image = imread(imageName, cv::IMREAD_COLOR);
     
     if (!image.data) {
         throw ImageNotFoundException();

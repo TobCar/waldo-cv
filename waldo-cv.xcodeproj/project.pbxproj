@@ -27,6 +27,7 @@
 		7686E8D7221B66AE00B074D4 /* waldo-cv */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "waldo-cv"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7686E8D8221CF8C600B074D4 /* puzzle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = puzzle.png; sourceTree = "<group>"; };
 		7686E8D9221CFA0700B074D4 /* find_waldo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = find_waldo.h; sourceTree = "<group>"; };
+		7686E8DB221E6EBB00B074D4 /* waldo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waldo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +44,7 @@
 		7686E8D4221B60B200B074D4 /* WaldoCV */ = {
 			isa = PBXGroup;
 			children = (
+				7686E8DB221E6EBB00B074D4 /* waldo.png */,
 				7686E8D8221CF8C600B074D4 /* puzzle.png */,
 				7686E8D5221B60B200B074D4 /* find_waldo.cpp */,
 				7686E8D9221CFA0700B074D4 /* find_waldo.h */,
