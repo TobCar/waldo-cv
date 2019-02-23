@@ -6,5 +6,6 @@
 
 cv::Mat loadImage(std::string);
 cv::Point findWaldoWithTemplateMatching(cv::Mat img, cv::Mat templ);
+cv::Mat emphasiseWaldo(cv::Mat img, cv::Mat templ, cv::Point matchLoc);
 
 #endif
