@@ -11,12 +11,21 @@ struct ImageNotFoundException : public std::exception {
 };
 
 int main(int argc, char** argv) {
+    // Get the image filenames from the user or use the default ones if the user requests it
+    const std::string puzzlePrompt("Please enter the filename of the puzzle image (leave blank for default): ");
+    const std::string defaultPuzzleInput("puzzle.png");
+    std::string puzzleFilename = queryUser(puzzlePrompt, defaultPuzzleInput);
+
+    const std::string templatePrompt("Please enter the filename of the template image (leave blank for default): ");
+    const std::string defaultTemplateInput("waldo.png");
+    std::string templateFileName = queryUser(templatePrompt, defaultTemplateInput);
+
     // Load in the puzzle image and the picture of Waldo we are looking for
     cv::Mat puzzleImage;
     cv::Mat waldoTemplateImage;
     try {
-        puzzleImage = loadImage("puzzle.png");
-        waldoTemplateImage = loadImage("waldo.png");
+        puzzleImage = loadImage(puzzleFilename);
+        waldoTemplateImage = loadImage(templateFileName);
     } catch (const ImageNotFoundException& e) {
         std::cout << e.what() << std::endl;
         return -1;
@@ -29,6 +38,22 @@ int main(int argc, char** argv) {
     cv::waitKey(0);
     
     return 0;
+}
+
+std::string queryUser(std::string prompt, std::string defaultInput) {
+    std::cout << prompt;
+    
+    if (std::cin.peek() == '\n') {
+        // std::cin.ignore(1) removes the \n from cin so the next time this function is called
+        // peek won't detect it and assume the user pressed new line again
+        std::cin.ignore(1);
+        return defaultInput;
+    } else {
+        std::string input;
+        std::cin >> input;
+        std::cin.ignore(1);
+        return input;
+    }
 }
 
 cv::Mat loadImage(std::string imageName) {
